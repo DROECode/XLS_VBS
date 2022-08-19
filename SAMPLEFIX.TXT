@@ -1,0 +1,30 @@
+// Copyright Douglas J Roe, Disaster Oatmeal Productions, Three Panel Joke 2022
+// PROBLEM CODE ASKED - WHY WONT THIS READ AND OPEN THE WORKBOOK?
+
+Sub selectVisibleRange()
+
+Dim wsCopy As Worksheet
+Dim wsDest As Worksheet
+
+  Set wsCopy = Workbooks("something something").Worksheets("something register")
+  Set wsDest = Workbooks("next really cool register").Worksheets("TARGET")
+
+  wsCopy.Range("$A$5:$BZ$233").AutoFilter Field:=31, Criteria:="TARGET"
+  wsCopy.SpecialCells(xlCellTypeVisible).Copy
+  wsDest.Cells(1,1).PasteSpecial
+
+End Sub
+
+// Answer - you forgot to declare the new location
+// ADD a new declare for the objects
+
+Dim wbZero as Workbook, wbTarget as Workbook
+Dim wsCopy as Worksheet, wsDest as Worksheet
+
+<awesome code>
+ '--> destination / output workbook
+ Set wbTarget = Workbooks.Add
+
+ <more awesome code >
+
+  wsDest.range("A1").Pastespecial
