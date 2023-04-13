@@ -1,0 +1,16 @@
+Sub ConvertTextToNumbers()
+    ' Select the column you want to convert
+    Dim selectedColumn As Range
+    Set selectedColumn = Application.Selection
+    
+    ' Loop through each cell in the selected column
+    Dim cell As Range
+    For Each cell In selectedColumn.Cells
+        ' Check if the cell contains a valid number
+        If IsNumeric(cell.Value) Then
+            ' Convert the text to a number
+            cell.Value = CDbl(cell.Value)
+        End If
+    Next cell
+End Sub
+
