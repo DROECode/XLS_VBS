@@ -14,3 +14,13 @@ Sub ConvertTextToNumbers()
     Next cell
 End Sub
 
+
+Sub SpellCheckAllTabs()
+    Dim ws As Worksheet
+    For Each ws In ActiveWorkbook.Worksheets
+        ws.Activate
+        Cells.CheckSpelling
+    Next ws
+End Sub
+
+
